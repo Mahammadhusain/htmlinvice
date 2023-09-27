@@ -1,190 +1,696 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title>A simple, clean, and responsive HTML invoice template</title>
+<html lang="en">
 
-		<style>
-			.invoice-box {
-				max-width: 800px;
-				margin: auto;
-				padding: 30px;
-				border: 1px solid #eee;
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-				font-size: 16px;
-				line-height: 24px;
-				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-				color: #555;
-			}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .top_rw {
+            background-color: #f4f4f4;
+        }
 
-			.invoice-box table {
-				width: 100%;
-				line-height: inherit;
-				text-align: left;
-			}
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
 
-			.invoice-box table td {
-				padding: 5px;
-				vertical-align: top;
-			}
+        .invoice-box {
+            max-width: 890px;
+            margin: auto;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            border-right: 1px solid #eee;
+            border-left: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+            font-size: 14px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
 
-			.invoice-box table tr td:nth-child(2) {
-				text-align: right;
-			}
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+            /* border-bottom: solid 1px #ccc; */
+        }
 
-			.invoice-box table tr.top table td {
-				padding-bottom: 20px;
-			}
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: middle;
+            /* border-bottom: solid 1px #ccc; */
+        }
 
-			.invoice-box table tr.top table td.title {
-				font-size: 45px;
-				line-height: 45px;
-				color: #333;
-			}
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
 
-			.invoice-box table tr.information table td {
-				padding-bottom: 40px;
-			}
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
 
-			.invoice-box table tr.heading td {
-				background: #eee;
-				border-bottom: 1px solid #ddd;
-				font-weight: bold;
-			}
+        .invoice-box table tr.top table td.title {
+            font-size: 30px;
+            line-height: 45px;
+            color: #333;
+        }
 
-			.invoice-box table tr.details td {
-				padding-bottom: 20px;
-			}
+        .invoice-box table tr.information table td {
+            padding-bottom: 20px;
+        }
 
-			.invoice-box table tr.item td {
-				border-bottom: 1px solid #eee;
-			}
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+            font-size: 12px;
+        }
 
-			.invoice-box table tr.item.last td {
-				border-bottom: none;
-			}
+        .invoice-box table td.heading {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+            font-size: 12px;
+        }
 
-			.invoice-box table tr.total td:nth-child(2) {
-				border-top: 2px solid #eee;
-				font-weight: bold;
-			}
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
 
-			@media only screen and (max-width: 600px) {
-				.invoice-box table tr.top table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+            font-size: 12px;
+        }
 
-				.invoice-box table tr.information table td {
-					width: 100%;
-					display: block;
-					text-align: center;
-				}
-			}
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
 
-			/** RTL **/
-			.invoice-box.rtl {
-				direction: rtl;
-				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-			}
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
 
-			.invoice-box.rtl table {
-				text-align: right;
-			}
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
 
-			.invoice-box.rtl table tr td:nth-child(2) {
-				text-align: left;
-			}
-		</style>
-	</head>
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
 
-	<body>
-		<div class="invoice-box">
-			<table cellpadding="0" cellspacing="0">
-				<tr class="top">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td class="title">
-									<img
-										src="https://sparksuite.github.io/simple-html-invoice-template/images/logo.png"
-										style="width: 100%; max-width: 300px"
-									/>
-								</td>
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        }
 
-								<td>
-									Invoice #: 123<br />
-									Created: January 1, 2023<br />
-									Due: February 1, 2023
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+        .rtl table {
+            text-align: right;
+        }
 
-				<tr class="information">
-					<td colspan="2">
-						<table>
-							<tr>
-								<td>
-									Sparksuite, Inc.<br />
-									12345 Sunny Road<br />
-									Sunnyville, CA 12345
-								</td>
+        .rtl table tr td:nth-child(2) {
+            text-align: left;
+        }
+    </style>
+    <title>Document</title>
+</head>
 
-								<td>
-									Acme Corp.<br />
-									John Doe<br />
-									john@example.com
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
+<body>
 
-				<tr class="heading">
-					<td>Payment Method</td>
+    <div class="invoice-box">
+        <div>
+            <img src="{{ request.scheme }}://{{ request.get_host }}/static/logo2.png" width="200" />
+        </div>
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top_rw">
+                <td colspan="2">
+                    <h2 style="margin-bottom: 0px;"> Tax invoice/Bill of Supply/Cash memo </h2>
+                    <span> Number: 27B00032991LQ354 Date: 21-11-2018 </span>
+                </td>
+                <td style="width:30%; margin-right: 10px;">
+                    PaytmMall Order Id: 6580083283
+                </td>
+            </tr>
+            <tr class="top">
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td>
+                                <b> Sold By: Nova Enterprises </b> <br>
+                                Delhivery Pvt. Ltd. Plot No. A5 Indian Corporation <br>
+                                Warehouse Park Village Dive-anjur, Bhiwandi, Off <br>
+                                Nh-3, Near Mankoli Naka, District Thane, Pin Code :
+                                421302 <br>
+                                Mumbai, Maharashtra - 421302 <br>
+                                PAN: AALFN0535C <br>
+                                GSTIN: 27AALFN0535C1ZK <br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="3">
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <b> Shipping Address: w3learnpoint </b> <br>
+                                Kokar, Ranchi <br>
+                                +0651-908-090-009<br>
+                                info@w3learnpoint.com<br>
+                                www.w3learnpoint.com
+                            </td>
+                            <td> <b> Billing Address: w3learnpoint </b><br>
+                                Acme Corp.<br>
+                                John Doe<br>
+                                john@example.com
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
 
-					<td>Check #</td>
-				</tr>
+        </table>
+        
+        <table cellspacing="0px" cellpadding="1px">
+            <tr class="heading">
+                <td style="width:5%;">
+                    Sr.No.
+                </td>
+                <td style="width:35%; ">
+                    Product
+                </td>
+                <td style="width:15%; text-align:center;">
+                    HSN-SAC CODE
+                </td>
+                <td style="width:5%; text-align:right;">
+                    Qty.
+                </td>
+                <td style="width:10%; text-align:right;">
+                    Rate
+                </td>
+                <td style="width:15%; text-align:right;">
+                    Unit
+                </td>
+                <td style="width:15%; text-align:right;">
+                    Total Amt.
+                </td>
+            </tr>
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
+            {% for i in data %}
+            <tr class="item">
+                <td style="width:5%;">
+                    {{forloop.counter}}
+                </td>
+                <td style="width:35%; text-align:center;">
+                    {{i.product}}
+                </td>
+                <td style="width:10%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.price}}
+                </td>
+                <td style="width:5%; text-align:right;">
+                    {{i.quantity}}
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.discount}}%
+                </td>
+                <td style="width:15%; text-align:right;">
+                    {{i.product_total}}
+                </td>
+            </tr>
+            {% endfor %}
 
-				<tr class="details">
-					<td>Check</td>
+            <tr class="item">
+                <td colspan="2"> <b> Grand Total </b> </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    322.03
+                </td>
+                <td>
+                </td>
+                <td>
+                    57.97
+                </td>
+                <td>
+                    380
+                </td>
+            </tr>
+            <tr class="total">
+                <td colspan="7" align="right"> Total Amount in Words : <b> <span style="font-style: italic;">Three Hundred
+                            Eighty Rupees Only</span> </b> </td>
+            </tr>
+        </table>
+        <tr>
+            <td colspan="2">&nbsp;</td>
+        </tr>
+        <table cellspacing="0px" cellpadding="1px">
+            <tr>
+                <td colspan="3">
+                    <table cellspacing="0px" cellpadding="2px">
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                FREIGHT CHARGE
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                10
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                OTHER CHARGES
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                10
+                            </td>
+                        </tr>
+                        
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                TOTAL
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                1520
+                            </td>
+                        </tr>
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                CGST
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                49.2
+                            </td>
+                            
+                        </tr>
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                SGST
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                49.2
+                            </td>
+                            
+                        </tr>
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                IGST
 
-					<td>1000</td>
-				</tr>
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                
+                            </td>
+                            
+                        </tr>
+                        <tr >
+                            <td colspan="3" class="heading" style="text-align: right;">
+                                ROUND OFF
+                            </td>
+                            <td colspan="3" style="text-align: right;">
+                                -0.4
+                            </td>
+                            
+                        </tr>
+                        <tr >
+                            <td  class="heading" >
+                                TOTAL			
 
-				<tr class="heading">
-					<td>Item</td>
+                            </td>
+                            <td >
+                                10
+                            </td>
+                            <td >
+                                
+                            </td>
+                            <td >
+                                Rs.
+                            </td>
+                            <td >
+                                3138
+                            </td>
+                            
+                        </tr>
+                    </table>
+                </td>
+            </tr>            
 
-					<td>Price</td>
-				</tr>
+            
+        </table>
 
-				<tr class="item">
-					<td>Website design</td>
 
-					<td>$300.00</td>
-				</tr>
+        <tr>
+            <td colspan="7">&nbsp;</td>
+        </tr>
+       
 
-				<tr class="item">
-					<td>Hosting (3 months)</td>
+        
 
-					<td>$75.00</td>
-				</tr>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="3">
+                    <table cellspacing="0px" cellpadding="2px">
+                        <tr class="heading">
+                            <td colspan="5">
+                                TAX BIFURCATION
+                            </td>
+                            <td>
+                                TOTAL
+                            </td>
 
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
+                        </tr>
+                        <tr>
+                            <td class="heading">
+                                TAXABLE AMT.
+                            </td>
+                            <td>
+                                5%
 
-					<td>$10.00</td>
-				</tr>
+                            </td>
+                            <td>
+                                1200
 
-				<tr class="total">
-					<td></td>
+                            </td>
+                            <td>
+                                12%
 
-					<td>Total: $385.00</td>
-				</tr>
-			</table>
-		</div>
-	</body>
+                            </td>
+                            <td>
+                                320
+
+                            </td>
+                            <td>
+                                1520
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="heading">
+                                CGST
+
+                            </td>
+                            <td>
+                                2.50%
+
+
+                            </td>
+                            <td>
+                                30
+
+
+                            </td>
+                            <td>
+                                6%
+
+                            </td>
+                            <td>
+                                19.2
+
+                            </td>
+                            <td>
+                                49.2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="heading">
+                                SGST
+
+                            </td>
+                            <td>
+                                2.50%
+
+
+                            </td>
+                            <td>
+                                30
+
+
+                            </td>
+                            <td>
+                                6%
+
+                            </td>
+                            <td>
+                                19.2
+
+                            </td>
+                            <td>
+                                49.2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="heading">
+                                IGST
+
+                            </td>
+                            <td>
+
+
+                            </td>
+                            <td>
+
+
+                            </td>
+                            <td>
+
+
+                            </td>
+                            <td>
+
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+
+
+
+                </td>
+            </tr>
+        </table>
+
+        <tr>
+            <td colspan="3">
+                <table cellspacing="0px" cellpadding="2px">
+                    <tr>
+                        <td width="50%">
+                            <b> Company Bank Detail</b> <br>
+                            We declare that this invoice shows the actual price of the goods
+                            described above and that all particulars are true and correct. The
+                            goods sold are intended for end user consumption and not for resale.
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            * This is a computer generated invoice and does not
+                            require a physical signature
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;text-transform: lowercase;">
+                            AT THE END, HERE WE MAKE COMPANY'S LEGAL CONDITIONS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                        </td>
+                        <td>
+                            <b> Authorized Signature </b>
+                            <br>
+                            <br>
+                            ...................................
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </div>
+
+</body>
+
 </html>
